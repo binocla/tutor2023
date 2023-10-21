@@ -1,3 +1,5 @@
+package tutor1;
+
 public class Calculator {
     public int value; // 0
 
