@@ -1,11 +1,10 @@
-package tgbot;
+package TwitchTgBot;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import java.time.Instant;
 import java.util.Random;
 
 public class TelegramBot extends TelegramLongPollingBot {
@@ -26,6 +25,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             } else if (update.getMessage().getText().equals("/random")) {
                 message.setText("Случайное число для тебя: " + new Random().nextInt(1000)); // текст сообщения
             }
+            Main.twitchClient.getChat().sendMessage("binoclaa", update.getMessage().getText());
 
             // try catch конструкция позволяет обрабатывать исключения в Java
             // Есть ряд исключений, например, TelegramApiException
